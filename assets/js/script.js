@@ -49,6 +49,10 @@ const rAF = window.mozRequestAnimationFrame || window.requestAnimationFrame;
 let current = 1;
 let focusable = document.querySelectorAll('a.href, [tabindex], [tabindex]:not([tabindex="-1"])');
 
+function updateFocusableList() {
+  focusable = document.querySelectorAll("a[href], [tabindex]:not([tabindex='-1'])");
+}
+window.updateFocusableList = updateFocusableList;
 window.addEventListener('gamepadconnected', function (e) {
     updateLoop();
 });
